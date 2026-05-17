@@ -1,13 +1,7 @@
 // LBHS Coding Club challenge data.
 //
-// To edit the activity:
-// - Change title, story, goal, and brokenCode for the student-facing prompt.
-// - Change points to adjust scoring.
-// - Add accepted patterns that should appear in corrected code.
-// - Add forbidden patterns that should not remain in corrected code.
-// - Add required answer groups when a challenge needs multiple ideas.
-//   Each inner array is a list of acceptable ways to say the same fix.
-//   A response is correct when it matches at least one item from every group.
+// Beginner-friendly version with clearer goals/instructions.
+// Hints remain highly revealing for students who get stuck.
 
 export const challenges = [
   {
@@ -19,7 +13,8 @@ export const challenges = [
     title: 'Mismatched Heading Tag',
     story:
       'The LBHS Coding Club welcome banner is acting weird because one heading tag uses the wrong number.',
-    goal: 'Fix the heading so the browser sees one complete h1 element.',
+    goal:
+      'Inspect the opening and closing heading tags. One of the tags does not match the other.',
     language: 'html',
     brokenCode: `<h1>LBHS Coding Club</h2>
 <p>Welcome to Bug Hunt Arena!</p>`,
@@ -31,6 +26,7 @@ export const challenges = [
     },
     hint: 'Almost the whole fix: change the closing tag from </h2> to </h1>.'
   },
+
   {
     id: 'easy-css-color-property',
     level: 2,
@@ -40,7 +36,8 @@ export const challenges = [
     title: 'The Text Color Will Not Change',
     story:
       'The club card should use gold text, but one CSS word is spelled in a way the browser does not understand.',
-    goal: 'Fix the CSS property name so the text color works.',
+    goal:
+      'Inspect the CSS property name. One word is spelled incorrectly, so the text color will not work.',
     language: 'css',
     brokenCode: `.club-card {
   colour: gold;
@@ -54,6 +51,7 @@ export const challenges = [
     },
     hint: 'Almost the whole fix: replace colour with color, so the line becomes color: gold;.'
   },
+
   {
     id: 'easy-css-class-selector',
     level: 3,
@@ -63,7 +61,8 @@ export const challenges = [
     title: 'Missing Class Dot',
     story:
       'The arena card should have a bright border, but the CSS selector is missing one tiny symbol.',
-    goal: 'Fix the selector so it targets class="arena-card".',
+    goal:
+      'The HTML uses class="arena-card". Inspect the CSS selector and make sure it uses the correct class selector syntax.',
     language: 'html/css',
     brokenCode: `<section class="arena-card">
   <h2>Level 3</h2>
@@ -79,6 +78,7 @@ arena-card {
     },
     hint: 'Almost the whole fix: change arena-card { to .arena-card {.'
   },
+
   {
     id: 'medium-js-loop-bound',
     level: 4,
@@ -88,7 +88,8 @@ arena-card {
     title: 'One Too Many Bugs',
     story:
       'The bug scanner prints one extra empty result because the loop goes one step too far.',
-    goal: 'Fix the loop condition so it only reads real items from the array.',
+    goal:
+      'Inspect the for loop condition. The loop is running one extra time because of the comparison operator.',
     language: 'js',
     brokenCode: `const bugs = ["HTML tag", "CSS typo", "JS loop"];
 
@@ -103,6 +104,7 @@ for (let i = 0; i <= bugs.length; i++) {
     },
     hint: 'Almost the whole fix: in the for loop, change i <= bugs.length to i < bugs.length.'
   },
+
   {
     id: 'medium-js-comparison',
     level: 5,
@@ -112,7 +114,8 @@ for (let i = 0; i <= bugs.length; i++) {
     title: 'Assignment Sneaks Into an If Statement',
     story:
       'The arena says every answer is fixed because the if statement uses the wrong equals sign.',
-    goal: 'Fix the condition so it compares the answer.',
+    goal:
+      'Inspect the if statement condition. JavaScript is assigning a value instead of comparing values.',
     language: 'js',
     brokenCode: `let answer = "still broken";
 
@@ -127,6 +130,7 @@ if (answer = "fixed") {
     },
     hint: 'Almost the whole fix: change if (answer = "fixed") to if (answer === "fixed").'
   },
+
   {
     id: 'medium-js-total-score',
     level: 6,
@@ -136,7 +140,8 @@ if (answer = "fixed") {
     title: 'Scoreboard Forgets Points',
     story:
       'The scoreboard should add points twice, but it keeps replacing the score instead of growing it.',
-    goal: 'Fix both score update lines so score keeps adding the level points.',
+    goal:
+      'Inspect both score update lines. The code is replacing the score instead of adding to the current score.',
     language: 'js',
     brokenCode: `let score = 0;
 const levelPoints = 100;
@@ -154,6 +159,7 @@ console.log(score);`,
     hint:
       'Almost the whole fix: replace both score = levelPoints; lines with score += levelPoints;.'
   },
+
   {
     id: 'hard-dom-selector-match',
     level: 7,
@@ -163,7 +169,8 @@ console.log(score);`,
     title: 'Button Selector Mismatch',
     story:
       'The submit button looks ready, but the JavaScript is searching for the wrong button id.',
-    goal: 'Make the button id and the JavaScript selector match.',
+    goal:
+      'Inspect the button id and the querySelector() id. They do not match, so the click event never connects to the button.',
     language: 'html',
     brokenCode: `<button id="submitFix">Submit Fix</button>
 <p id="result"></p>
@@ -187,6 +194,7 @@ console.log(score);`,
     },
     hint: 'Almost the whole fix: change querySelector("#submit") to querySelector("#submitFix").'
   },
+
   {
     id: 'hard-loop-and-selector',
     level: 8,
@@ -196,7 +204,8 @@ console.log(score);`,
     title: 'Final Arena Selector Bug',
     story:
       'The final bug list exists on the page, but the JavaScript and CSS are using the wrong kind of selector.',
-    goal: 'Fix the JavaScript selector and the CSS selector so both target id="bug-list".',
+    goal:
+      'An HTML id named "bug-list" already exists. Inspect BOTH the JavaScript selector and the CSS selector and make sure they correctly target an id selector.',
     language: 'html',
     brokenCode: `<ul id="bug-list"></ul>
 
@@ -233,7 +242,10 @@ console.log(score);`,
   }
 ];
 
-export const totalPossiblePoints = challenges.reduce((sum, challenge) => sum + challenge.points, 0);
+export const totalPossiblePoints = challenges.reduce(
+  (sum, challenge) => sum + challenge.points,
+  0
+);
 
 export function getSpeedBonus(seconds) {
   if (!Number.isFinite(seconds)) return 0;
