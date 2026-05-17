@@ -293,7 +293,7 @@ export default function PlayPage() {
       setFeedback({
         type: 'error',
         title: 'Pick a leaderboard name',
-        body: 'Use one name or two partner names, like Alex or Alex + Brooke.'
+        body: 'Use one name or two partner names, like David or David + Ezekiel.'
       });
       await showCinemaPopup('fail', 'ACCESS DENIED', 1000);
       setSubmitting(false);
@@ -454,7 +454,7 @@ export default function PlayPage() {
               id="displayName"
               value={displayName}
               onChange={(event) => setDisplayName(event.target.value)}
-              placeholder="Alex or Alex + Brooke"
+              placeholder="David or David + Ezekiel"
               maxLength={40}
               autoComplete="off"
               disabled={submitting || setupRequired}
@@ -466,7 +466,7 @@ export default function PlayPage() {
             <p className="small-note">
               {setupRequired
                 ? 'Add Firebase environment variables and rebuild before students join.'
-                : 'Example: Alex or Alex + Brooke. No accounts or logins.'}
+                : 'Example: David or David + Ezekiel. No accounts or logins.'}
             </p>
             {setupRequired && (
               <InlineFeedback
