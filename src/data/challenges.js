@@ -18,7 +18,7 @@ export const challenges = [
     points: 100,
     title: 'Mismatched Heading Tag',
     story:
-      'The LBHS Coding Club welcome banner is showing up strangely. The opening and closing heading tags are not on the same team.',
+      'The LBHS Coding Club welcome banner is acting weird because one heading tag uses the wrong number.',
     goal: 'Fix the heading so the browser sees one complete h1 element.',
     language: 'html',
     brokenCode: `<h1>LBHS Coding Club</h2>
@@ -29,7 +29,7 @@ export const challenges = [
       forbidden: ['</h2>'],
       required: [['</h1>', 'h1 closing tag', 'close the h1', 'matching h1']]
     },
-    hint: 'Check the number on the opening heading tag and the closing heading tag.'
+    hint: 'Almost the whole fix: change the closing tag from </h2> to </h1>.'
   },
   {
     id: 'easy-css-color-property',
@@ -39,7 +39,7 @@ export const challenges = [
     points: 100,
     title: 'The Text Color Will Not Change',
     story:
-      'The club card should use a gold text color, but the browser is ignoring one CSS property.',
+      'The club card should use gold text, but one CSS word is spelled in a way the browser does not understand.',
     goal: 'Fix the CSS property name so the text color works.',
     language: 'css',
     brokenCode: `.club-card {
@@ -52,7 +52,7 @@ export const challenges = [
       forbidden: ['colour:'],
       required: [['color:', 'change colour to color', 'use color']]
     },
-    hint: 'CSS uses the American spelling for this property.'
+    hint: 'Almost the whole fix: replace colour with color, so the line becomes color: gold;.'
   },
   {
     id: 'easy-css-class-selector',
@@ -62,7 +62,7 @@ export const challenges = [
     points: 100,
     title: 'Missing Class Dot',
     story:
-      'The arena card should have a bright border, but the CSS selector is looking for an element instead of a class.',
+      'The arena card should have a bright border, but the CSS selector is missing one tiny symbol.',
     goal: 'Fix the selector so it targets class="arena-card".',
     language: 'html/css',
     brokenCode: `<section class="arena-card">
@@ -77,7 +77,7 @@ arena-card {
       accepted: ['.arena-card', 'add a dot before arena-card', 'use .arena-card'],
       required: [['.arena-card', 'dot before arena-card', 'class selector']]
     },
-    hint: 'Classes start with a dot in CSS selectors.'
+    hint: 'Almost the whole fix: change arena-card { to .arena-card {.'
   },
   {
     id: 'medium-js-loop-bound',
@@ -87,7 +87,7 @@ arena-card {
     points: 150,
     title: 'One Too Many Bugs',
     story:
-      'The bug scanner prints one extra empty result. The loop is stepping past the end of the list.',
+      'The bug scanner prints one extra empty result because the loop goes one step too far.',
     goal: 'Fix the loop condition so it only reads real items from the array.',
     language: 'js',
     brokenCode: `const bugs = ["HTML tag", "CSS typo", "JS loop"];
@@ -101,7 +101,7 @@ for (let i = 0; i <= bugs.length; i++) {
       forbidden: ['i <= bugs.length'],
       required: [['i < bugs.length', 'change <= to <', 'less than bugs.length']]
     },
-    hint: 'Array indexes stop one before the array length.'
+    hint: 'Almost the whole fix: in the for loop, change i <= bugs.length to i < bugs.length.'
   },
   {
     id: 'medium-js-comparison',
@@ -111,7 +111,7 @@ for (let i = 0; i <= bugs.length; i++) {
     points: 150,
     title: 'Assignment Sneaks Into an If Statement',
     story:
-      'The arena says every answer is fixed, even when it is not. The if statement is setting a value instead of comparing it.',
+      'The arena says every answer is fixed because the if statement uses the wrong equals sign.',
     goal: 'Fix the condition so it compares the answer.',
     language: 'js',
     brokenCode: `let answer = "still broken";
@@ -125,7 +125,7 @@ if (answer = "fixed") {
       forbidden: ['answer = "fixed"', "answer = 'fixed'"],
       required: [['===', '==', 'strict equality', 'comparison'], ['answer', 'fixed']]
     },
-    hint: 'A single equals sign assigns a value. Comparisons need two or three equals signs.'
+    hint: 'Almost the whole fix: change if (answer = "fixed") to if (answer === "fixed").'
   },
   {
     id: 'medium-js-total-score',
@@ -135,24 +135,24 @@ if (answer = "fixed") {
     points: 150,
     title: 'Scoreboard Forgets Points',
     story:
-      'The scoreboard only remembers the last level value. It should add every level score together.',
-    goal: 'Fix the line inside the loop so total keeps growing.',
+      'The scoreboard should add points twice, but it keeps replacing the score instead of growing it.',
+    goal: 'Fix both score update lines so score keeps adding the level points.',
     language: 'js',
-    brokenCode: `let total = 0;
-const points = [100, 150, 150];
+    brokenCode: `let score = 0;
+const levelPoints = 100;
 
-for (let i = 0; i < points.length; i++) {
-  total = points[i];
-}
+score = levelPoints;
+score = levelPoints;
 
-console.log(total);`,
+console.log(score);`,
     answer: {
-      summary: 'Add to total with total += points[i] or total = total + points[i].',
-      accepted: ['total += points[i]', 'total = total + points[i]', 'add points[i] to total'],
-      forbidden: ['total = points[i]'],
-      required: [['total += points[i]', 'total=total+points[i]', 'add to total', 'total plus']]
+      summary: 'Add to score with score += levelPoints or score = score + levelPoints.',
+      accepted: ['score += levelPoints', 'score = score + levelPoints', 'add levelPoints to score'],
+      forbidden: ['score = levelPoints'],
+      required: [['score += levelPoints', 'score=score+levelPoints', 'add to score', 'score plus']]
     },
-    hint: 'The current line replaces total. The fix should add the new points to total.'
+    hint:
+      'Almost the whole fix: replace both score = levelPoints; lines with score += levelPoints;.'
   },
   {
     id: 'hard-dom-selector-match',
@@ -162,7 +162,7 @@ console.log(total);`,
     points: 250,
     title: 'Button Selector Mismatch',
     story:
-      'The submit button looks ready, but clicking it does nothing. The JavaScript is searching for an id that does not exist.',
+      'The submit button looks ready, but the JavaScript is searching for the wrong button id.',
     goal: 'Make the button id and the JavaScript selector match.',
     language: 'html',
     brokenCode: `<button id="submitFix">Submit Fix</button>
@@ -185,45 +185,51 @@ console.log(total);`,
         ['querySelector("#submitFix")', "querySelector('#submitFix')", 'id="submit"', "id='submit'"]
       ]
     },
-    hint: 'Compare the id inside the button with the selector inside querySelector.'
+    hint: 'Almost the whole fix: change querySelector("#submit") to querySelector("#submitFix").'
   },
   {
     id: 'hard-loop-and-selector',
     level: 8,
     difficulty: 'Hard',
-    type: 'HTML/JavaScript',
+    type: 'HTML/CSS/JavaScript',
     points: 250,
-    title: 'Final Arena List Bug',
+    title: 'Final Arena Selector Bug',
     story:
-      'The final bug list skips the first item, adds an empty item, and cannot find the list on the page.',
-    goal: 'Fix the loop start, loop condition, and list selector.',
+      'The final bug list exists on the page, but the JavaScript and CSS are using the wrong kind of selector.',
+    goal: 'Fix the JavaScript selector and the CSS selector so both target id="bug-list".',
     language: 'html',
-    brokenCode: `<ul id="bugs"></ul>
+    brokenCode: `<ul id="bug-list"></ul>
 
 <script>
   const bugs = ["HTML", "CSS", "JavaScript"];
 
-  for (let i = 1; i <= bugs.length; i++) {
+  for (let i = 0; i < bugs.length; i++) {
     const item = document.createElement("li");
     item.textContent = bugs[i];
-    document.querySelector(".bugs").appendChild(item);
+    document.querySelector(".bug-list").appendChild(item);
   }
-</script>`,
+</script>
+
+<style>
+  bug-list {
+    color: lime;
+  }
+</style>`,
     answer: {
       summary:
-        'Start at i = 0, loop while i < bugs.length, and select the list with #bugs.',
-      accepted: [
-        'let i = 0; i < bugs.length; document.querySelector("#bugs")',
-        'start at 0, use < bugs.length, and use #bugs'
+        'Use #bug-list for the JavaScript querySelector and the CSS selector.',
+      accepted: ['fix both #bug-list selectors', 'use #bug-list in javascript and css'],
+      forbidden: [
+        'querySelector(".bug-list")',
+        "querySelector('.bug-list')"
       ],
-      forbidden: ['let i = 1', 'i <= bugs.length', 'querySelector(".bugs")', "querySelector('.bugs')"],
       required: [
-        ['let i = 0', 'i=0', 'start at 0'],
-        ['i < bugs.length', 'i<bugs.length', 'change <= to <'],
-        ['#bugs', 'querySelector("#bugs")', "querySelector('#bugs')", 'id selector']
+        ['querySelector("#bug-list")', "querySelector('#bug-list')"],
+        ['#bug-list {', '#bug-list{']
       ]
     },
-    hint: 'There are three bugs: the starting index, the ending condition, and the CSS selector.'
+    hint:
+      'Almost the whole fix: change .bug-list to #bug-list in querySelector, and change bug-list { to #bug-list { in the CSS.'
   }
 ];
 

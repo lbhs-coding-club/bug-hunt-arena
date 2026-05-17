@@ -47,10 +47,10 @@ const cases = [
     actual: checkChallengeAnswer(challenges[7].brokenCode, challenges[7]).correct
   },
   {
-    name: 'level 8 accepts all three fixes',
+    name: 'level 8 accepts both selector fixes',
     expected: true,
     actual: checkChallengeAnswer(
-      'for (let i = 0; i < bugs.length; i++) {\n  const item = document.createElement("li");\n  item.textContent = bugs[i];\n  document.querySelector("#bugs").appendChild(item);\n}',
+      '<ul id="bug-list"></ul>\n<script>document.querySelector("#bug-list").appendChild(item);</script>\n<style>#bug-list { color: lime; }</style>',
       challenges[7]
     ).correct
   }
