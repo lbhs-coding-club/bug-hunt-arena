@@ -1,0 +1,9 @@
+node_modules
+dist
+.tools
+pnpm-lock.yaml
+pnpm-workspace.yaml
+.env
+.env.local
+.env.*.local
+.DS_Store

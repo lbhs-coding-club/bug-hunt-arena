@@ -1,0 +1,18 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LBHS Coding Club Bug Hunt Arena badge</title>
+  <desc id="desc">A clean coding club badge with brackets, bug antennae, and LBHS lettering.</desc>
+  <rect width="240" height="240" rx="28" fill="#10233F"/>
+  <path d="M42 72C42 58.745 52.745 48 66 48H174C187.255 48 198 58.745 198 72V168C198 181.255 187.255 192 174 192H66C52.745 192 42 181.255 42 168V72Z" fill="#F7FAFC"/>
+  <path d="M71 88L48 120L71 152" stroke="#8A1538" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M169 88L192 120L169 152" stroke="#8A1538" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M101 78L86 162" stroke="#F5B942" stroke-width="12" stroke-linecap="round"/>
+  <path d="M139 78L154 162" stroke="#F5B942" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="120" cy="121" r="32" fill="#2F8F6B"/>
+  <path d="M101 106C95 99 91 94 86 87" stroke="#2F8F6B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M139 106C145 99 149 94 154 87" stroke="#2F8F6B" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="108" cy="116" r="5" fill="#10233F"/>
+  <circle cx="132" cy="116" r="5" fill="#10233F"/>
+  <path d="M106 136C114 143 126 143 134 136" stroke="#10233F" stroke-width="7" stroke-linecap="round"/>
+  <rect x="78" y="178" width="84" height="24" rx="6" fill="#10233F"/>
+  <text x="120" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#F5B942">LBHS</text>
+</svg>
